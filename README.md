@@ -11,7 +11,8 @@ TODO
 Role Variables
 --------------
 
-TODO
+python_pycharm_install: true
+python_pycharm_version: 2016.2.3
 
 Dependencies
 ------------
@@ -24,7 +25,7 @@ Example Playbook
 ```
 - hosts: servers
   roles:
-      - { role: kurron.python-developer, jvm_sdkman_install: false, vm_intellij_version: 2016.2.4, jvm_intellij_build: 162.2032.8 }
+      - { role: kurron.python-developer, python_pycharm_version: 2016.2.3 }
 ```
 
 License
