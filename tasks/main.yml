@@ -75,3 +75,45 @@
   - "pip"
   - "setuptools"
   - "virtualenv"
+
+- name: Download Pycharm Edu Tarball
+  become: no
+  get_url:
+      url: "https://download.jetbrains.com/python/pycharm-edu-{{python_pycharm_edu_version}}.tar.gz"
+      dest: "{{ansible_user_dir}}/{{python_download_directory}}/pycharm-edu-{{python_pycharm_edu_version}}.tar.gz"
+      mode: 0444
+  when: python_pycharm_edu_install
+
+- name: Uncompress Pycharm Edu Tarball
+  become: no
+  unarchive:
+      src: "{{ansible_user_dir}}/{{python_download_directory}}/pycharm-edu-{{python_pycharm_edu_version}}.tar.gz"
+      dest: "{{ansible_user_dir}}/{{python_software_directory}}"
+      copy: no
+      owner: "{{ansible_user_uid}}"
+      group: "{{ansible_user_gid}}"
+      mode: 0555
+      creates: "{{ansible_user_dir}}/{{python_software_directory}}/pycharm-edu-{{python_pycharm_edu_version}}/build.txt"
+  when: python_pycharm_edu_install
+
+- name: Create Softlink To Pycharm Edu
+  become: no
+  file:
+      src: "{{ansible_user_dir}}/{{python_software_directory}}/pycharm-edu-{{python_pycharm_edu_version}}"
+      dest: "{{ansible_user_dir}}/{{python_software_directory}}/pycharm-edu"
+      owner: "{{ansible_user_uid}}"
+      group: "{{ansible_user_gid}}"
+      state: link
+  when: python_pycharm_edu_install
+
+- name: Create Desktop Icon For Pycharm Edu
+  become: no
+  template:
+      src: "templates/pycharm-edu.desktop.j2"
+      dest: "{{ansible_user_dir}}/Desktop/pycharm-edu.desktop"
+      owner: "{{ansible_user_uid}}"
+      group: "{{ansible_user_gid}}"
+      mode: 0555
+  when: python_pycharm_edu_install
+
+

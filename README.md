@@ -11,8 +11,10 @@ TODO
 Role Variables
 --------------
 
-python_pycharm_install: true
-python_pycharm_version: 2016.2.3
+* python_pycharm_install: true
+* python_pycharm_version: 2016.2.3
+* python_pycharm_edu_install: true
+* python_pycharm_edu_version: 3.0.1
 
 Dependencies
 ------------
