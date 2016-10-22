@@ -58,4 +58,21 @@
       mode: 0555
   when: python_pycharm_install
 
+- name: Install Required Packages
+  become: yes
+  package:
+      name: "{{item}}"
+      state: present
+  with_items:
+  - "python-pip"
+  - "python-dev"
 
+- name: Install Python Packages
+  become: yes
+  pip:
+      name: "{{item}}"
+      state: latest
+  with_items:
+  - "pip"
+  - "setuptools"
+  - "virtualenv"
