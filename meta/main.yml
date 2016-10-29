@@ -1,6 +1,6 @@
 galaxy_info:
   author: Ronald D. Kurr
-  description: Long time slinger of code.
+  description: Python IDEs and command-line tools.
   company: jvmguy.com
 
   license: Apache 2
@@ -35,6 +35,8 @@ galaxy_info:
       - python
       - jetbrains
       - pycharm
+      - pycharm-edu
+      - virtualenv 
 
 dependencies:
     - { role: kurron.jdk }
