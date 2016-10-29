@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=PyCharm Edu
 Comment=Python Training
-Exec={{ansible_user_dir}}/Software/pycharm-edu/bin/pycharm.sh
+Exec=env PYCHARM_JDK={{jdk_global_jdk_directory}} {{ansible_user_dir}}/Software/pycharm-edu/bin/pycharm.sh
 Icon={{ansible_user_dir}}/Software/pycharm-edu/bin/pycharm.png
 Path=
 Terminal=false

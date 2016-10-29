@@ -46,7 +46,7 @@
       dest: "{{ansible_user_dir}}/Desktop/pycharm.desktop"
       owner: "{{ansible_user_uid}}"
       group: "{{ansible_user_gid}}"
-      mode: 0555
+      mode: 0755
   when: python_pycharm_install
 
 - name: Set Global Environment To Have PyCharm Use Shared JDK
@@ -103,7 +103,7 @@
       dest: "{{ansible_user_dir}}/Desktop/pycharm-edu.desktop"
       owner: "{{ansible_user_uid}}"
       group: "{{ansible_user_gid}}"
-      mode: 0555
+      mode: 0755
   when: python_pycharm_edu_install
 
 - name: Remove PyCharm Edu's Embedded JDK
