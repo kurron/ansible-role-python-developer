@@ -113,3 +113,21 @@
       state: absent
   when: python_pycharm_share_jdk
 
+- name: Add Python3 Repository
+  become: yes
+  apt_repository:
+      repo: 'ppa:fkrull/deadsnakes'
+      update_cache: yes
+      state: present
+  when: operations_python3_install and (ansible_distribution == "Ubuntu")
+
+- name: Install Python3 Package
+  become: yes
+  package:
+      name: "{{item}}"
+      state: present
+      allow_unauthenticated: yes
+  with_items:
+  - "{{operations_python3_version}}"
+  when: operations_python3_install and (ansible_distribution == "Ubuntu")
+

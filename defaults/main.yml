@@ -6,3 +6,5 @@ python_pycharm_share_jdk: true
 python_pycharm_edu_install: false
 python_pycharm_edu_version: 3.0.1
 
+operations_python3_install: true
+operations_python3_version: python3.6
