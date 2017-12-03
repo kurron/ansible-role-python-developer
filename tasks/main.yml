@@ -130,4 +130,3 @@
   with_items:
   - "{{operations_python3_version}}"
   when: operations_python3_install and (ansible_distribution == "Ubuntu")
-
