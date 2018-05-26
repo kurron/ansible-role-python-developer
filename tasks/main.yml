@@ -1,10 +1,20 @@
 ---
+- name: Install Python3
+  become: yes
+  apt:
+      name: "{{item}}"
+      state: latest
+      update_cache: true
+  loop:
+  - "python3"
+  when: (false == python_python3_install) and (ansible_distribution == "Ubuntu")
+
 - name: Install Python Packages
   become: yes
   pip:
       name: "{{item}}"
       state: latest
-  with_items:
+  loop:
   - "pip"
   - "setuptools"
   - "virtualenv"
@@ -119,7 +129,7 @@
       repo: 'ppa:deadsnakes/ppa'
       update_cache: yes
       state: present
-  when: operations_python3_install and (ansible_distribution == "Ubuntu")
+  when: python_python3_install and (ansible_distribution == "Ubuntu")
 
 - name: Install Python3 Package
   become: yes
@@ -127,6 +137,6 @@
       name: "{{item}}"
       state: present
       allow_unauthenticated: yes
-  with_items:
+  loop:
   - "{{operations_python3_version}}"
-  when: operations_python3_install and (ansible_distribution == "Ubuntu")
+  when: python_python3_install and (ansible_distribution == "Ubuntu")

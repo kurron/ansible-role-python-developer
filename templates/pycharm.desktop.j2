@@ -3,7 +3,7 @@ Version=1.0
 Type=Application
 Name=PyCharm
 Comment=Python IDE
-Exec=env PYCHARM_JDK={{jdk_global_jdk_directory}} {{ansible_user_dir}}/Software/pycharm/bin/pycharm.sh
+Exec=env PYCHARM_JDK={{jdk_destination}}/{{jdk_azul_jdk_8_link_destination}} {{ansible_user_dir}}/Software/pycharm/bin/pycharm.sh
 Icon={{ansible_user_dir}}/Software/pycharm/bin/pycharm.png
 Path=
 Terminal=false

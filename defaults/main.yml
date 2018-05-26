@@ -1,10 +1,10 @@
 ---
 python_pycharm_install: true
-python_pycharm_version: 2018.1
+python_pycharm_version: 2018.1.3
 python_pycharm_share_jdk: true
 
 python_pycharm_edu_install: false
 python_pycharm_edu_version: 3.0.1
 
-operations_python3_install: true
-operations_python3_version: python3.6
+python_python3_install: false
+python_python3_version: python3.7
