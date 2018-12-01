@@ -1,6 +1,7 @@
 ---
+# https://www.jetbrains.com/pycharm/
 python_pycharm_install: true
-python_pycharm_version: 2018.2.4
+python_pycharm_version: 2018.3
 python_pycharm_share_jdk: true
 
 python_pycharm_edu_install: false
